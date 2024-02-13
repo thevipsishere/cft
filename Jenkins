@@ -9,8 +9,7 @@ Resources:
     Type: "AWS::IAM::User"
     Properties:
       UserName: MyUser
-      Groups:
-        - Ref: MyIAMGroup
+      Groups: MyGroup
 
   MySNSTopic:
     Type: "AWS::SNS::Topic"
