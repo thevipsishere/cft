@@ -3,12 +3,12 @@ Resources:
   MyIAMGroup:
     Type: "AWS::IAM::Group"
     Properties:
-      GroupName: Volkswagen
+      GroupName: MyGroup
 
   MyIAMUser:
     Type: "AWS::IAM::User"
     Properties:
-      UserName: Polo
+      UserName: MyUser
       Groups:
         - Ref: MyIAMGroup
 
@@ -22,5 +22,6 @@ Resources:
     Type: "AWS::SNS::Subscription"
     Properties:
       Protocol: "email"
-      TopicArn: !Ref MySNSTopic
+      TopicArn: 
+        Ref: "MySNSTopic"
       Endpoint: "vipuldadgal@example.com"
