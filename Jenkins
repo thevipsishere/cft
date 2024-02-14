@@ -1,16 +1,10 @@
-{
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Resources": {
-        "S3Bucket": {
-            "Type": "AWS::S3::Bucket"
-        }
-    },
-    "Outputs": {
-        "BucketName": {
-            "Value": {
-                "Ref": "S3Bucket"
-            },
-            "Description": "Name of the sample Amazon S3 bucket."
-        }
-    }
-}
+pipeline {
+    agent any
+    stages {
+        stage('Submit Stack') {
+            steps {
+            sh "aws cloudformation create-stack --stack-name s3bucket --template-body file://simplests3cft.json --region 'ap-south-1'"
+              }
+             }
+            }
+            }
