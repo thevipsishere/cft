@@ -1,26 +1,16 @@
-AWSTemplateFormatVersion: '2010-09-09'
-Resources:
-  MyIAMGroup:
-    Type: "AWS::IAM::Group"
-    Properties:
-      GroupName: MyGroup
-
-  MyIAMUser:
-    Type: "AWS::IAM::User"
-    Properties:
-      UserName: MyUser
-      Groups: MyGroup
-
-  MySNSTopic:
-    Type: "AWS::SNS::Topic"
-    Properties:
-      DisplayName: "My SNS Topic"
-      TopicName: "MySNSTopic"
-
-  MySNSSubscription:
-    Type: "AWS::SNS::Subscription"
-    Properties:
-      Protocol: "email"
-      TopicArn: 
-        Ref: "MySNSTopic"
-      Endpoint: "vipuldadgal@example.com"
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "S3Bucket": {
+            "Type": "AWS::S3::Bucket"
+        }
+    },
+    "Outputs": {
+        "BucketName": {
+            "Value": {
+                "Ref": "S3Bucket"
+            },
+            "Description": "Name of the sample Amazon S3 bucket."
+        }
+    }
+}
